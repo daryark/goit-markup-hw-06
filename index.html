@@ -36,7 +36,7 @@
 					</li>
 					<li class="item">
 						<a href="tel:+380961111111" class="link">
-							<svg class="icon" width="10" height="16"><use href="./images/icons.svg#tel"></use></svg>
+							<svg class="icon" width="10" height="16"><use href="./images/icons.svg#mobile"></use></svg>
 							+38 096 111 11 11</a
 						>
 					</li>
@@ -328,6 +328,7 @@
 				</form>
 			</div>
 		</footer>
+
 		<div class="backdrop is-hidden" data-backdrop>
 			<div class="modal">
 				<button class="button-close" data-close-modal>
@@ -335,22 +336,44 @@
 						<use href="./images/icons.svg#close-back"></use>
 					</svg>
 				</button>
-				<form>
-					<p>Залиште свої дані, ми вам передзвонимо</p>
-					<label for="name">Ім'я</label>
-					<input type="text" name="name" id="name" />
-					<label for="tel">Телефон</label>
-					<input type="tel" name="tel" id="tel" />
-					<label for="email">Пошта</label>
-					<input type="email" name="email" id="email" />
-					<label for="comment">Коментар</label>
-					<textarea name="comment" id="comment" rows="8"></textarea>
-					<input type="checkbox" name="policy" id="policy" />
-					<label for="policy">Погоджуюся з розсилкою та приймаю <span>Умови договору</span></label>
+				<form class="modal-form">
+					<p class="form-title">Залиште свої дані, ми вам передзвонимо</p>
+					<ul>
+						<li class="form-item">
+							<label for="name">Ім'я</label>
+							<input type="text" name="name" id="name" />
+							<svg class="icon" width="18" height="18">
+								<use href="./images/icons.svg#person"></use>
+							</svg>
+						</li>
+						<li class="form-item">
+							<label for="tel">Телефон</label>
+							<input type="tel" name="tel" id="tel" />
+							<svg class="icon" width="18" height="18">
+								<use href="./images/icons.svg#tel"></use>
+							</svg>
+						</li>
+						<li class="form-item">
+							<label for="email">Пошта</label>
+							<input type="email" name="email" id="email" />
+							<svg class="icon" width="18" height="18">
+								<use href="./images/icons.svg#modal-email"></use>
+							</svg>
+						</li>
+						<li class="comment-item">
+							<label for="comment">Коментар</label>
+							<textarea name="comment" id="comment" placeholder="Введіть текст"></textarea>
+						</li>
+					</ul>
+					<label class="policy">
+						<input type="checkbox" name="policy" class="custom-checkbox" />
+						Погоджуюся з розсилкою та приймаю <a class="policy-link" href="">Умови договору</a>
+					</label>
 					<button class="modal-button action-button" type="submit">Відправити</button>
 				</form>
 			</div>
 		</div>
+
 		<script src="js/modal.js"></script>
 	</body>
 </html>

@@ -163,7 +163,9 @@ address {
 	background-color: var(--dark-background);
 }
 .hero {
+	margin: 0 auto;
 	margin-bottom: 16px;
+	max-width: 696px;
 	text-align: center;
 
 	font-weight: 900;
@@ -334,7 +336,9 @@ address {
 	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients .icon,
-.socials .icon {
+.socials .icon,
+.modal-form .icon,
+.button-close {
 	fill: currentColor;
 }
 /* C:Footer */
@@ -397,12 +401,12 @@ address {
 	color: rgba(255, 255, 255, 0.6);
 	background-color: transparent;
 	border: 1px solid rgba(255, 255, 255, 0.3);
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 	border-radius: 4px;
+
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+	transition: outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.mail-form .title,
-.modal input:not([type="checkbox"]),
-.modal label:not([for="policy"]) {
+.mail-form .title {
 	display: block;
 }
 .footer-button {
@@ -480,7 +484,7 @@ address {
 	line-height: 2;
 	letter-spacing: var(--big-letter-spacing);
 }
-/*C: Hovers */
+/*C: Hovers/Focus */
 .action-button:hover,
 .action-button:focus,
 .socials .link:hover,
@@ -496,7 +500,9 @@ address {
 .header .link:hover,
 .header .link:focus,
 .clients .link:hover .icon,
-.clients .link:focus .icon {
+.clients .link:focus .icon,
+.button-close:hover,
+.button-close:focus {
 	color: var(--accent-color);
 }
 .clients .link:hover,
@@ -524,6 +530,7 @@ address {
 .portfolio .link:focus .thumb-content {
 	transform: translateY(0);
 }
+
 /* C: Modal */
 .backdrop {
 	position: fixed;
@@ -566,6 +573,7 @@ address {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
 	width: 30px;
 	height: 30px;
 
@@ -575,11 +583,123 @@ address {
 	border-radius: 50%;
 }
 /* C: Modal form */
+.modal-form {
+	width: 448px;
+	margin: 0 auto;
+
+	color: var(--main-color);
+}
+.form-title {
+	margin-top: 0;
+	margin-bottom: 12px;
+
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.15;
+	text-align: center;
+	letter-spacing: var(--letter-spacing);
+}
+.form-item {
+	position: relative;
+	margin-bottom: 10px;
+}
+.form-item label,
+[for="comment"] {
+	margin-bottom: 4px;
+
+	color: var(--second-color);
+}
+.modal-form label,
+textarea::placeholder {
+	font-family: inherit;
+	font-size: 12px;
+	line-height: 1.17;
+	letter-spacing: 0.01em;
+}
+.form-item .icon {
+	position: absolute;
+	bottom: 11px;
+	left: 12px;
+}
+.modal-form input:not([type="checkbox"]),
 textarea {
-	display: block;
-	margin: 0;
+	width: 100%;
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+
+	height: 40px;
+	padding-left: 42px;
+	transition: outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+textarea {
+	margin-bottom: 20px;
+	padding: 12px 16px;
+	height: 120px;
 	resize: none;
+
+	color: var(--second-color);
+}
+textarea::placeholder {
+	color: rgba(117, 117, 117, 0.5);
+}
+[type="checkbox"] {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.modal-form .policy {
+	margin-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 14px;
+	line-height: 1.71;
+
+	letter-spacing: var(--letter-spacing);
+}
+.policy-link {
+	margin-left: 2px;
+	color: #2196f3;
+	text-decoration-line: underline;
+	text-underline-position: under;
 }
 .modal-button {
 	padding: 10px 52px;
+}
+.modal-form input:focus:not([type="checkbox"]),
+textarea:focus,
+.mail-form input:focus {
+	outline: 1px solid var(--accent-color);
+	outline-offset: -1px;
+}
+.form-item:focus-within .icon,
+.form-item:focus-within label,
+.comment-item:focus-within label,
+textarea:focus::placeholder,
+.mail-form input:focus::placeholder {
+	color: var(--accent-color);
+}
+.custom-checkbox {
+	margin-right: 7px;
+
+	width: 12px;
+	height: 12px;
+
+	border: 2px solid var(--main-color);
+	border-radius: 2px;
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='checked' viewBox='0 0 13 10'%3E%3Cpath d='M1.95703 4.75166L1.88825 4.68604L1.81923 4.75141L0.93123 5.59258L0.854858 5.66492L0.930974 5.73753L4.42671 9.07236L4.49574 9.1382L4.56476 9.07236L12.069 1.91352L12.1449 1.84116L12.069 1.76881L11.1873 0.927644L11.1183 0.861826L11.0493 0.927611L4.49577 7.17353L1.95703 4.75166Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 0;
+	transition: background-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	/* Мені не сподобався ефект анімації бордера, коли прибираєш галочку, тому я не ставила border 250ms cubic-bezier(0.4, 0, 0.2, 1)*/
+}
+.custom-checkbox:checked {
+	background-color: var(--accent-color);
+	opacity: 1;
+	background-size: 100%;
+	border: none;
 }
